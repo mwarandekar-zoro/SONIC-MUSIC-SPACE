@@ -1,0 +1,6 @@
+.row { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.art { flex: none; width: 44px; height: 44px; object-fit: cover; border-radius: 10px; border: 1px solid var(--line); }
+.info { min-width: 0; }
+.title { margin: 0; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.meta { margin: 2px 0 0; font-size: 13px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.empty .title { color: var(--muted); font-weight: 500; }

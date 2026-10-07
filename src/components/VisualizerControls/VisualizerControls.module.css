@@ -1,0 +1,14 @@
+.wrap { position: absolute; left: 0; right: 0; margin: 0 auto; width: max-content; z-index: 20; display: flex; gap: 4px; padding: 5px; max-width: calc(100vw - 24px); overflow-x: auto; scrollbar-width: none; background: var(--glass); border: 1px solid var(--line); border-radius: 999px; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); transition: bottom 0.4s var(--ease), opacity 0.6s var(--ease); }
+.wrap::-webkit-scrollbar { display: none; }
+.noTrack { bottom: calc(36px + var(--safe-bottom)); }
+.withTrack { bottom: calc(142px + var(--safe-bottom)); }
+.hidden { opacity: 0; pointer-events: none; }
+.btn { position: relative; padding: 7px 16px; background: none; border: 0; border-radius: 999px; color: var(--muted); font-size: 13px; font-weight: 600; white-space: nowrap; cursor: pointer; transition: color 0.3s var(--ease); }
+.btn:hover { color: var(--text); }
+.active { color: var(--ink); }
+.pill { position: absolute; inset: 0; border-radius: 999px; background: var(--text); }
+.label { position: relative; }
+@media (max-width: 760px) {
+  .wrap { top: calc(64px + env(safe-area-inset-top, 0px)); bottom: auto !important; }
+  .btn { padding: 6px 11px; font-size: 12px; }
+}

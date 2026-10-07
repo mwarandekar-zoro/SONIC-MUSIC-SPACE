@@ -1,0 +1,20 @@
+.player { position: absolute; left: 0; right: 0; margin: 0 auto; bottom: calc(24px + var(--safe-bottom)); z-index: 25; width: min(94vw, 880px); display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 20px; padding: 14px 22px 18px; background: var(--glass); border: 1px solid var(--line); border-radius: var(--radius-l); backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4); }
+.controls { display: flex; align-items: center; gap: 10px; }
+.btn { display: grid; place-items: center; width: 40px; height: 40px; background: none; border: 0; border-radius: 50%; color: var(--text); cursor: pointer; transition: background 0.3s var(--ease), transform 0.3s var(--ease); }
+.btn:hover:not(:disabled) { background: rgba(255, 255, 255, 0.08); transform: scale(1.08); }
+.btn:disabled { opacity: 0.35; cursor: not-allowed; }
+.play { width: 52px; height: 52px; background: var(--text); color: var(--ink); }
+.play:hover:not(:disabled) { background: #fff; }
+.volume { display: flex; align-items: center; gap: 6px; }
+.volumeSlider { width: 96px; }
+.side { justify-self: end; display: flex; align-items: center; gap: 4px; }
+.icon { display: grid; place-items: center; }
+.progress { grid-column: 1 / -1; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 12px; font-variant-numeric: tabular-nums; font-size: 12px; color: var(--muted); }
+.barHit { padding: 10px 0; cursor: pointer; touch-action: none; border-radius: 4px; }
+.barHit[aria-disabled='true'] { cursor: default; }
+.bar { position: relative; height: 4px; border-radius: 4px; background: rgba(255, 255, 255, 0.12); transition: height 0.2s var(--ease); }
+.barHit:hover .bar, .barHit:focus-visible .bar { height: 6px; }
+.fill { position: absolute; inset: 0 auto 0 0; width: 0; border-radius: 4px; background: linear-gradient(90deg, var(--violet), var(--pulse)); }
+.fill::after { content: ''; position: absolute; right: -5px; top: 50%; width: 10px; height: 10px; border-radius: 50%; background: #fff; transform: translateY(-50%) scale(0); transition: transform 0.2s var(--ease); }
+.barHit:hover .fill::after, .barHit:focus-visible .fill::after { transform: translateY(-50%) scale(1); }
+@media (max-width: 760px) { .player { grid-template-columns: minmax(0, 1fr) auto auto; gap: 12px; } .volume { display: none; } }

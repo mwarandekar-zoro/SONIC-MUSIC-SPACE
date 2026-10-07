@@ -1,0 +1,49 @@
+:root {
+  /* Colour system: deep ink with an ultraviolet base and a hot pink reserved for beats. */
+  --ink: #06050b;
+  --ink-2: #0d0b17;
+  --glass: rgba(14, 12, 26, 0.58);
+  --line: rgba(176, 164, 255, 0.16);
+  --line-strong: rgba(176, 164, 255, 0.38);
+  --text: #eceaf7;
+  --muted: #8d89a8;
+  --violet: #9a86ff;
+  --pulse: #ff4fa3;
+
+  --font-display: 'Syne', 'Helvetica Neue', Arial, sans-serif;
+  --font-ui: 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --radius-s: 8px;
+  --radius-l: 20px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body, #root { height: 100%; margin: 0; }
+
+body {
+  background: var(--ink);
+  color: var(--text);
+  font-family: var(--font-ui);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+button { font: inherit; color: inherit; }
+
+:focus-visible {
+  outline: 2px solid var(--violet);
+  outline-offset: 3px;
+  border-radius: var(--radius-s);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

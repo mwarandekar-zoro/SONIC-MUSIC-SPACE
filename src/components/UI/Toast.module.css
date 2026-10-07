@@ -1,0 +1,7 @@
+.host { position: fixed; top: 76px; left: 50%; transform: translateX(-50%); z-index: 50; display: grid; gap: 8px; width: min(92vw, 420px); pointer-events: none; }
+.toast { pointer-events: auto; display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: var(--glass); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border: 1px solid var(--line); border-radius: 14px; font-size: 14px; }
+.toast.error { border-color: rgba(255, 79, 163, 0.55); }
+.dot { flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--violet); }
+.error .dot { background: var(--pulse); }
+.close { margin-left: auto; background: none; border: 0; color: var(--muted); cursor: pointer; font-size: 18px; line-height: 1; padding: 2px 6px; }
+.close:hover { color: var(--text); }
