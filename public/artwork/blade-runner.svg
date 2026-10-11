@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 560" width="400" height="560">
+  <defs>
+    <linearGradient id="br_grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#05101a"/>
+      <stop offset="45%" stop-color="#0a2a40"/>
+      <stop offset="75%" stop-color="#ff4500"/>
+      <stop offset="100%" stop-color="#ffd700"/>
+    </linearGradient>
+    <linearGradient id="br_overlay" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#000" stop-opacity="0.2"/>
+      <stop offset="70%" stop-color="#000" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#040b12" stop-opacity="0.95"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="560" fill="url(#br_grad)"/>
+  <!-- Cyberpunk skyscraper silhouettes -->
+  <rect x="40" y="140" width="60" height="300" fill="#03080e" opacity="0.8"/>
+  <rect x="120" y="80" width="80" height="360" fill="#051018" opacity="0.9"/>
+  <rect x="220" y="110" width="70" height="330" fill="#040c14" opacity="0.85"/>
+  <rect x="310" y="170" width="50" height="270" fill="#03080e" opacity="0.75"/>
+  <!-- Neon lights & beam -->
+  <line x1="160" y1="80" x2="160" y2="40" stroke="#00ffff" stroke-width="3"/>
+  <circle cx="160" cy="40" r="4" fill="#00ffff"/>
+  <path d="M0 240 L400 210" stroke="#ff0055" stroke-width="2" opacity="0.7"/>
+  <path d="M0 290 L400 280" stroke="#00ffff" stroke-width="1.5" opacity="0.6"/>
+  <!-- Flying spinner silhouette -->
+  <polygon points="170,160 230,165 210,175 160,172" fill="#000"/>
+  <circle cx="215" cy="172" r="3" fill="#00ffff"/>
+  <circle cx="165" cy="170" r="3" fill="#ff4500"/>
+  <rect width="400" height="560" fill="url(#br_overlay)"/>
+  <text x="200" y="475" text-anchor="middle" fill="#ffffff" font-family="'Inter', sans-serif" font-size="20" font-weight="900" letter-spacing="4">BLADE RUNNER 2049</text>
+  <text x="200" y="505" text-anchor="middle" fill="#00e5ff" font-family="'Inter', sans-serif" font-size="12" font-weight="600" letter-spacing="2">SYNTH ODYSSEY</text>
+</svg>

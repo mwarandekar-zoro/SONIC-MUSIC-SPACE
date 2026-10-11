@@ -26,12 +26,25 @@ export default function TrackInfo() {
     )
   }
 
+  const metaParts = [
+    track.artist || 'Unknown artist',
+    track.album || null,
+    track.format || 'AUDIO',
+    typeof track.sizeMB === 'number' ? `${track.sizeMB.toFixed(1)} MB` : (track.genre || null)
+  ].filter(Boolean).join(' · ')
+
   return (
     <div className={styles.row}>
-      {track.artworkUrl && <img className={styles.art} src={track.artworkUrl} alt="" width="44" height="44" />}
+      {track.artworkUrl ? (
+        <img className={styles.art} src={track.artworkUrl} alt={track.title || track.name} width="44" height="44" />
+      ) : (
+        <div className={styles.artFallback} aria-hidden="true">
+          <span>♪</span>
+        </div>
+      )}
       <div className={styles.info}>
-        <p ref={title} className={styles.title} title={track.fileName}>{track.name}</p>
-        <p className={styles.meta}>{track.artist ?? 'Unknown artist'} · {track.format} · {track.sizeMB.toFixed(1)} MB</p>
+        <p ref={title} className={styles.title} title={track.fileName || track.name}>{track.title || track.name}</p>
+        <p className={styles.meta}>{metaParts}</p>
       </div>
     </div>
   )

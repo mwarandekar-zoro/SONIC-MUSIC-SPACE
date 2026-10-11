@@ -7,8 +7,10 @@ import styles from './ShortcutsHelp.module.css'
 
 const SHORTCUTS = [
   ['Space', 'Play or pause'],
+  ['N / B', 'Next / Previous track'],
   ['← →', 'Seek 5 seconds'],
-  ['M', 'Mute'],
+  ['L', 'Open music library'],
+  ['M', 'Mute audio'],
   ['1 – 5', 'Visualizer mode'],
   ['S', 'Open settings'],
   ['E', 'Show or hide environments'],

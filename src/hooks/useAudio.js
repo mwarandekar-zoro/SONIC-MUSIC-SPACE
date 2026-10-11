@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { audioEngine } from '../audio/AudioEngine'
+import { playNextTrack } from '../audio/loadTrack'
 import { useVisualizerStore } from '../store/visualizerStore'
 
 /** Connects the AudioEngine to the UI store: volume goes in, playback state and errors come out. */
@@ -14,6 +15,9 @@ export default function useAudio() {
   useEffect(() => {
     const offState = audioEngine.on('state', ({ isPlaying, duration }) => useVisualizerStore.setState({ isPlaying, duration }))
     const offError = audioEngine.on('error', (message) => useVisualizerStore.getState().pushToast(message, 'error'))
-    return () => { offState(); offError() }
+    const offEnded = audioEngine.on('ended', () => {
+      playNextTrack(true)
+    })
+    return () => { offState(); offError(); offEnded() }
   }, [])
 }

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 560" width="400" height="560">
+  <defs>
+    <linearGradient id="bg_no" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a031a"/>
+      <stop offset="45%" stop-color="#2a0845"/>
+      <stop offset="85%" stop-color="#ff2a85"/>
+      <stop offset="100%" stop-color="#05d5ff"/>
+    </linearGradient>
+    <radialGradient id="glow_no" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#ff2a85" stop-opacity="0.85"/>
+      <stop offset="70%" stop-color="#140727" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#070212" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="overlay_no" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#000" stop-opacity="0.1"/>
+      <stop offset="70%" stop-color="#000" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#070214" stop-opacity="0.95"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="560" fill="url(#bg_no)"/>
+  <circle cx="200" cy="220" r="160" fill="url(#glow_no)"/>
+  <circle cx="200" cy="220" r="120" fill="none" stroke="#ff2a85" stroke-width="2" stroke-dasharray="10 8" opacity="0.6"/>
+  <circle cx="200" cy="220" r="85" fill="#0d041e" stroke="#05d5ff" stroke-width="3"/>
+  <polygon points="190,195 230,220 190,245" fill="#05d5ff"/>
+  <!-- Horizon grids -->
+  <path d="M0 380 L400 380 M0 415 L400 415 M0 455 L400 455 M0 505 L400 505" stroke="#ff2a85" stroke-width="1.2" opacity="0.4"/>
+  <path d="M200 380 L20 560 M200 380 L110 560 M200 380 L200 560 M200 380 L290 560 M200 380 L380 560" stroke="#05d5ff" stroke-width="1.2" opacity="0.4"/>
+  <rect width="400" height="560" fill="url(#overlay_no)"/>
+  <text x="200" y="475" text-anchor="middle" fill="#ffffff" font-family="'Inter', sans-serif" font-size="20" font-weight="900" letter-spacing="4">NEON ODYSSEY</text>
+  <text x="200" y="505" text-anchor="middle" fill="#05d5ff" font-family="'Inter', sans-serif" font-size="12" font-weight="600" letter-spacing="2">SONIC SPACE DEMO</text>
+</svg>

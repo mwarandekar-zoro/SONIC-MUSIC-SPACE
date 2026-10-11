@@ -18,3 +18,7 @@
 .fill::after { content: ''; position: absolute; right: -5px; top: 50%; width: 10px; height: 10px; border-radius: 50%; background: #fff; transform: translateY(-50%) scale(0); transition: transform 0.2s var(--ease); }
 .barHit:hover .fill::after, .barHit:focus-visible .fill::after { transform: translateY(-50%) scale(1); }
 @media (max-width: 760px) { .player { grid-template-columns: minmax(0, 1fr) auto auto; gap: 12px; } .volume { display: none; } }
+.btnActive { color: var(--pulse) !important; background: rgba(5, 213, 255, 0.14) !important; box-shadow: 0 0 12px rgba(5, 213, 255, 0.25); opacity: 1 !important; }
+.subBtn { opacity: 0.72; }
+.subBtn:hover { opacity: 1; }
+@media (max-width: 640px) { .seekBtn { display: none; } .controls { gap: 4px; } }

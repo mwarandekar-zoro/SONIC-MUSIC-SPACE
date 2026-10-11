@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 560" width="400" height="560">
+  <defs>
+    <radialGradient id="vbg_d" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#3b156b"/>
+      <stop offset="50%" stop-color="#15062e"/>
+      <stop offset="100%" stop-color="#020008"/>
+    </radialGradient>
+    <linearGradient id="overlay_dv" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#000" stop-opacity="0.1"/>
+      <stop offset="70%" stop-color="#000" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#020008" stop-opacity="0.95"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="560" fill="url(#vbg_d)"/>
+  <circle cx="200" cy="220" r="140" fill="none" stroke="#7e57c2" stroke-width="2" opacity="0.6"/>
+  <circle cx="200" cy="220" r="95" fill="#000" stroke="#fe8c00" stroke-width="4"/>
+  <circle cx="200" cy="220" r="65" fill="#020008"/>
+  <circle cx="200" cy="220" r="20" fill="#fe8c00" opacity="0.9"/>
+  <!-- Stars -->
+  <circle cx="90" cy="90" r="1.5" fill="#fff" opacity="0.8"/>
+  <circle cx="310" cy="110" r="2" fill="#fff" opacity="0.9"/>
+  <circle cx="60" cy="280" r="1.5" fill="#fff" opacity="0.6"/>
+  <circle cx="340" cy="300" r="2.5" fill="#fff" opacity="0.7"/>
+  <rect width="400" height="560" fill="url(#overlay_dv)"/>
+  <text x="200" y="475" text-anchor="middle" fill="#ffffff" font-family="'Inter', sans-serif" font-size="20" font-weight="900" letter-spacing="4">DEEP VOID REVERIE</text>
+  <text x="200" y="505" text-anchor="middle" fill="#d0bdf4" font-family="'Inter', sans-serif" font-size="12" font-weight="600" letter-spacing="2">ASTRAEA</text>
+</svg>

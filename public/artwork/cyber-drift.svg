@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 560" width="400" height="560">
+  <defs>
+    <linearGradient id="bg_cd" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#040b17"/>
+      <stop offset="50%" stop-color="#08203e"/>
+      <stop offset="100%" stop-color="#00ffcc"/>
+    </linearGradient>
+    <linearGradient id="overlay_cd" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#000" stop-opacity="0.1"/>
+      <stop offset="70%" stop-color="#000" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#040b17" stop-opacity="0.95"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="560" fill="url(#bg_cd)"/>
+  <path d="M0 320 L400 320 M0 360 L400 360 M0 410 L400 410 M0 470 L400 470 M0 540 L400 540" stroke="#00ffcc" stroke-width="1.5" stroke-opacity="0.5"/>
+  <path d="M200 320 L20 560 M200 320 L100 560 M200 320 L160 560 M200 320 L200 560 M200 320 L240 560 M200 320 L300 560 M200 320 L380 560" stroke="#00ffcc" stroke-width="1.5" stroke-opacity="0.5"/>
+  <polygon points="200,100 290,260 110,260" fill="none" stroke="#ff0077" stroke-width="5"/>
+  <polygon points="200,140 260,250 140,250" fill="none" stroke="#00ffcc" stroke-width="2.5" opacity="0.8"/>
+  <circle cx="200" cy="180" r="30" fill="#00ffcc" opacity="0.85"/>
+  <rect width="400" height="560" fill="url(#overlay_cd)"/>
+  <text x="200" y="475" text-anchor="middle" fill="#ffffff" font-family="'Inter', sans-serif" font-size="20" font-weight="900" letter-spacing="4">CYBER DRIFT</text>
+  <text x="200" y="505" text-anchor="middle" fill="#00ffcc" font-family="'Inter', sans-serif" font-size="12" font-weight="600" letter-spacing="2">DIGITAL ECHO</text>
+</svg>

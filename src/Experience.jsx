@@ -7,6 +7,7 @@ import VisualizerControls from './components/VisualizerControls/VisualizerContro
 import MusicPlayer from './components/MusicPlayer/MusicPlayer'
 import SettingsPanel from './components/SettingsPanel/SettingsPanel'
 import ShortcutsHelp from './components/ShortcutsHelp/ShortcutsHelp'
+import MusicLibrary from './components/MusicLibrary/MusicLibrary'
 import { useVisualizerStore } from './store/visualizerStore'
 import useKeyboardShortcuts from './hooks/useKeyboardShortcuts'
 import useFullscreenSync from './hooks/useFullscreenSync'
@@ -41,6 +42,7 @@ export default function Experience() {
       <AnimatePresence>
         {panel === 'settings' && <SettingsPanel key="settings" />}
         {panel === 'help' && <ShortcutsHelp key="help" />}
+        {panel === 'library' && <MusicLibrary key="library" />}
       </AnimatePresence>
     </motion.div>
   )

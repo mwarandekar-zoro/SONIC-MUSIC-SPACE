@@ -17,7 +17,7 @@ const MEDIA_ERROR_MESSAGES = {
  */
 class AudioEngine {
   constructor() {
-    this.listeners = { state: new Set(), error: new Set() }
+    this.listeners = { state: new Set(), error: new Set(), ended: new Set() }
     this.context = null
     this.audio = null
     this.gain = null
@@ -28,12 +28,13 @@ class AudioEngine {
   }
 
   on(event, handler) {
+    if (!this.listeners[event]) this.listeners[event] = new Set()
     this.listeners[event].add(handler)
     return () => this.listeners[event].delete(handler)
   }
 
   emit(event, payload) {
-    this.listeners[event].forEach((handler) => handler(payload))
+    this.listeners[event]?.forEach((handler) => handler(payload))
   }
 
   emitState() {
@@ -50,6 +51,7 @@ class AudioEngine {
       this.context = new Context()
       this.audio = new Audio()
       this.audio.preload = 'auto'
+      this.audio.crossOrigin = 'anonymous'
 
       const source = this.context.createMediaElementSource(this.audio)
       this.analyzer = new AudioAnalyzer(this.context)
@@ -59,9 +61,13 @@ class AudioEngine {
       this.analyzer.node.connect(this.gain)
       this.gain.connect(this.context.destination)
 
-      for (const type of ['play', 'pause', 'ended', 'durationchange']) {
+      for (const type of ['play', 'pause', 'durationchange']) {
         this.audio.addEventListener(type, () => this.emitState())
       }
+      this.audio.addEventListener('ended', () => {
+        this.emitState()
+        this.emit('ended')
+      })
     } catch (error) {
       this.dispose()
       throw new Error('The audio engine could not start in this browser.')
@@ -79,15 +85,28 @@ class AudioEngine {
     }
   }
 
-  /** Resolves once metadata is ready. Rejects with a user-friendly message. */
-  async load(file) {
+  /** Resolves once metadata is ready. Rejects with a user-friendly message. Supports File, Blob, or URL string. */
+  async load(source) {
     this.init()
     const token = ++this.loadToken
     await this.resume()
 
     this.audio.pause()
-    if (this.objectUrl) URL.revokeObjectURL(this.objectUrl)
-    this.objectUrl = URL.createObjectURL(file)
+    if (this.objectUrl) {
+      URL.revokeObjectURL(this.objectUrl)
+      this.objectUrl = null
+    }
+
+    let targetSrc = ''
+    if (typeof source === 'string') {
+      targetSrc = source
+    } else if (source instanceof Blob || source instanceof File) {
+      this.objectUrl = URL.createObjectURL(source)
+      targetSrc = this.objectUrl
+    } else {
+      throw new Error('Unsupported audio source format.')
+    }
+
     this.analyzer.reset()
 
     const audio = this.audio
@@ -98,11 +117,18 @@ class AudioEngine {
         audio.removeEventListener('error', onError)
       }
       const onReady = () => { cleanup(); resolve() }
-      const onError = () => { cleanup(); reject(new Error(MEDIA_ERROR_MESSAGES[audio.error?.code] ?? 'This file could not be loaded.')) }
-      const timer = setTimeout(() => { cleanup(); reject(new Error('Loading took too long. Try a smaller file.')) }, LOAD_TIMEOUT_MS)
+      const onError = () => {
+        cleanup()
+        const isUrl = typeof source === 'string'
+        const customMsg = isUrl
+          ? `Could not load track from "${source}". Please check if the file is in public/music/.`
+          : (MEDIA_ERROR_MESSAGES[audio.error?.code] ?? 'This audio file could not be loaded.')
+        reject(new Error(customMsg))
+      }
+      const timer = setTimeout(() => { cleanup(); reject(new Error('Loading audio took too long.')) }, LOAD_TIMEOUT_MS)
       audio.addEventListener('loadedmetadata', onReady)
       audio.addEventListener('error', onError)
-      audio.src = this.objectUrl
+      audio.src = targetSrc
       audio.load()
     })
 

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 560" width="400" height="560">
+  <defs>
+    <radialGradient id="dune_sun" cx="50%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#fff176"/>
+      <stop offset="35%" stop-color="#ff9800"/>
+      <stop offset="85%" stop-color="#b71c1c"/>
+      <stop offset="100%" stop-color="#1a0505"/>
+    </radialGradient>
+    <linearGradient id="dune_overlay" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#000" stop-opacity="0.1"/>
+      <stop offset="70%" stop-color="#000" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#140404" stop-opacity="0.96"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="560" fill="url(#dune_sun)"/>
+  <!-- Eclipse sun -->
+  <circle cx="200" cy="180" r="75" fill="#140404"/>
+  <circle cx="200" cy="180" r="82" fill="none" stroke="#ffb74d" stroke-width="4" opacity="0.8"/>
+  <!-- Desert Dunes Curves -->
+  <path d="M-20 320 Q 120 280 260 330 T 420 310 L 420 560 L -20 560 Z" fill="#4a1505" opacity="0.85"/>
+  <path d="M-20 370 Q 180 320 320 380 T 420 360 L 420 560 L -20 560 Z" fill="#2b0c03" opacity="0.9"/>
+  <path d="M-20 420 Q 140 380 420 430 L 420 560 L -20 560 Z" fill="#140404"/>
+  <!-- Sand spice sparkles -->
+  <circle cx="120" cy="240" r="1.5" fill="#ffe082" opacity="0.9"/>
+  <circle cx="280" cy="230" r="2" fill="#ffe082" opacity="0.8"/>
+  <circle cx="220" cy="270" r="1.5" fill="#ffe082" opacity="0.9"/>
+  <circle cx="160" cy="300" r="1.2" fill="#ffe082" opacity="0.7"/>
+  <rect width="400" height="560" fill="url(#dune_overlay)"/>
+  <text x="200" y="475" text-anchor="middle" fill="#ffffff" font-family="'Inter', sans-serif" font-size="20" font-weight="900" letter-spacing="4">DUNE: PART TWO</text>
+  <text x="200" y="505" text-anchor="middle" fill="#ffb74d" font-family="'Inter', sans-serif" font-size="12" font-weight="600" letter-spacing="2">EPIC SCI-FI SOUNDTRACK</text>
+</svg>

@@ -4,12 +4,14 @@ import PlaybackControls from './PlaybackControls'
 import ProgressBar from './ProgressBar'
 import VolumeControl from './VolumeControl'
 import { openFilePicker } from '../../audio/loadTrack'
-import { UploadIcon } from '../UI/Icons'
+import { LibraryIcon, UploadIcon } from '../UI/Icons'
 import { useVisualizerStore } from '../../store/visualizerStore'
 import styles from './MusicPlayer.module.css'
 
 export default function MusicPlayer() {
   const hasTrack = useVisualizerStore((s) => Boolean(s.track))
+  const panel = useVisualizerStore((s) => s.panel)
+  const togglePanel = useVisualizerStore((s) => s.togglePanel)
 
   return (
     <AnimatePresence>
@@ -26,7 +28,15 @@ export default function MusicPlayer() {
           <TrackInfo />
           <PlaybackControls />
           <div className={styles.side}>
-            <button className={styles.btn} onClick={openFilePicker} aria-label="Load another song" title="Load another song">
+            <button
+              className={`${styles.btn} ${panel === 'library' ? styles.btnActive : ''}`}
+              onClick={() => togglePanel('library')}
+              aria-label="Open music library"
+              title="Music Library (L)"
+            >
+              <LibraryIcon />
+            </button>
+            <button className={styles.btn} onClick={openFilePicker} aria-label="Upload your own song" title="Upload Audio File">
               <UploadIcon />
             </button>
             <VolumeControl />

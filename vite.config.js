@@ -3,6 +3,11 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
+  server: {
+    watch: {
+      ignored: ['**/MUSIC/**', '**/demo video/**'],
+    },
+  },
   build: {
     chunkSizeWarningLimit: 1500,
     rollupOptions: {

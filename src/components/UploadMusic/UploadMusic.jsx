@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useVisualizerStore } from '../../store/visualizerStore'
 import { loadTrackFile, openFilePicker } from '../../audio/loadTrack'
-import { UploadIcon } from '../UI/Icons'
+import { LibraryIcon, UploadIcon } from '../UI/Icons'
 import styles from './UploadMusic.module.css'
 
 const hasFiles = (e) => Array.from(e.dataTransfer?.types ?? []).includes('Files')
@@ -11,6 +11,7 @@ const hasFiles = (e) => Array.from(e.dataTransfer?.types ?? []).includes('Files'
 export default function UploadMusic() {
   const hasTrack = useVisualizerStore((s) => Boolean(s.track))
   const loading = useVisualizerStore((s) => s.loadingTrack)
+  const togglePanel = useVisualizerStore((s) => s.togglePanel)
   const [dragging, setDragging] = useState(false)
 
   // Whole-window drag and drop.
@@ -50,9 +51,14 @@ export default function UploadMusic() {
           >
             <h2 className={styles.title}>Give the space a sound</h2>
             <p className={styles.hint}>Drop an audio file anywhere, or choose from your device.</p>
-            <button className={styles.pick} onClick={openFilePicker} disabled={loading}>
-              <UploadIcon /> {loading ? 'Loading track…' : 'Choose a song'}
-            </button>
+            <div className={styles.btnGroup}>
+              <button className={styles.pick} onClick={openFilePicker} disabled={loading}>
+                <UploadIcon /> {loading ? 'Loading track…' : 'Choose a song'}
+              </button>
+              <button className={styles.libraryBtn} onClick={() => togglePanel('library')} disabled={loading}>
+                <LibraryIcon /> Browse Music Library
+              </button>
+            </div>
             <p className={styles.formats}>Supports MP3, WAV, OGG, FLAC & AAC. Processed 100% locally.</p>
           </motion.div>
         )}

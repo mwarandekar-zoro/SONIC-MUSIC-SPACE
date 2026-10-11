@@ -15,3 +15,19 @@ export const PauseIcon = () => (<svg {...base}><rect x="6" y="5" width="4" heigh
 export const SeekBackIcon = () => (<svg {...stroke}><path d="M4 12a8 8 0 1 0 2.5-5.8M4 4v4h4" /><path d="M9.6 10v4.4m2.4-4.4h1.6a.8.8 0 0 1 .8.8v2.8a.8.8 0 0 1-.8.8H12Z" strokeWidth="1.4" /></svg>)
 export const SeekForwardIcon = () => (<svg {...stroke}><path d="M20 12a8 8 0 1 1-2.5-5.8M20 4v4h-4" /><path d="M9.6 10v4.4m2.4-4.4h1.6a.8.8 0 0 1 .8.8v2.8a.8.8 0 0 1-.8.8H12Z" strokeWidth="1.4" /></svg>)
 export const CameraIcon = () => (<svg {...stroke}><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" /><circle cx="12" cy="13" r="4" /></svg>)
+export const LibraryIcon = () => (<svg {...stroke}><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z" /><path d="M6 6h10M6 10h10M9 16a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm0 0V9l6-2v7" /></svg>)
+export const ShuffleIcon = () => (<svg {...stroke}><path d="M16 3h5v5M4 20l6.5-6.5M21 3l-6.5 6.5M16 21h5v-5M4 4l17 17" /></svg>)
+export const RepeatIcon = () => (<svg {...stroke}><path d="m17 1 4 4-4 4" /><path d="M3 11V9a4 4 0 0 1 4-4h14M7 23l-4-4 4-4" /><path d="M21 13v2a4 4 0 0 1-4 4H3" /></svg>)
+export const RepeatOneIcon = () => (
+  <svg {...stroke}>
+    <path d="m17 1 4 4-4 4" />
+    <path d="M3 11V9a4 4 0 0 1 4-4h14M7 23l-4-4 4-4" />
+    <path d="M21 13v2a4 4 0 0 1-4 4H3" />
+    <text x="12" y="14" fill="currentColor" stroke="none" fontSize="8" fontWeight="bold" textAnchor="middle">1</text>
+  </svg>
+)
+export const SearchIcon = () => (<svg {...stroke}><circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" /></svg>)
+export const QueueIcon = () => (<svg {...stroke}><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" /></svg>)
+export const PlusIcon = () => (<svg {...stroke}><path d="M12 5v14M5 12h14" /></svg>)
+export const TrashIcon = () => (<svg {...stroke}><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M10 11v6M14 11v6" /></svg>)
+

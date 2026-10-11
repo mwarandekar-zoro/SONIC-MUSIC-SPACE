@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 560" width="400" height="560">
+  <defs>
+    <linearGradient id="sbg_s" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4a154b"/>
+      <stop offset="45%" stop-color="#d76d77"/>
+      <stop offset="85%" stop-color="#ffaf7b"/>
+      <stop offset="100%" stop-color="#ffc371"/>
+    </linearGradient>
+    <linearGradient id="overlay_sw" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#000" stop-opacity="0.1"/>
+      <stop offset="70%" stop-color="#000" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#19041b" stop-opacity="0.95"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="560" fill="url(#sbg_s)"/>
+  <circle cx="200" cy="210" r="90" fill="#ffffff" opacity="0.9"/>
+  <circle cx="200" cy="210" r="115" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.4"/>
+  <path d="M20 320 Q 200 240 380 320" stroke="#fff" stroke-width="4" fill="none" opacity="0.6"/>
+  <path d="M20 360 Q 200 280 380 360" stroke="#fff" stroke-width="2" fill="none" opacity="0.4"/>
+  <rect width="400" height="560" fill="url(#overlay_sw)"/>
+  <text x="200" y="475" text-anchor="middle" fill="#ffffff" font-family="'Inter', sans-serif" font-size="20" font-weight="900" letter-spacing="4">SOLAR WINDS</text>
+  <text x="200" y="505" text-anchor="middle" fill="#ffaf7b" font-family="'Inter', sans-serif" font-size="12" font-weight="600" letter-spacing="2">QUANTUM PULSAR</text>
+</svg>
