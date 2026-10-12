@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 560" width="400" height="560">
+  <defs>
+    <linearGradient id="bg_believer" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a0404"/>
+      <stop offset="50%" stop-color="#4a0e0e"/>
+      <stop offset="85%" stop-color="#ff3d00"/>
+      <stop offset="100%" stop-color="#ffd600"/>
+    </linearGradient>
+    <linearGradient id="bel_overlay" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#000" stop-opacity="0.2"/>
+      <stop offset="70%" stop-color="#000" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#120202" stop-opacity="0.96"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="560" fill="url(#bg_believer)"/>
+  <!-- Geometric dragon / triangles -->
+  <polygon points="200,80 320,320 80,320" fill="none" stroke="#ff3d00" stroke-width="6"/>
+  <polygon points="200,140 280,300 120,300" fill="none" stroke="#ffd600" stroke-width="3"/>
+  <circle cx="200" cy="220" r="45" fill="#ff3d00" opacity="0.85"/>
+  <path d="M60 400 L340 400" stroke="#ff3d00" stroke-width="2" opacity="0.5"/>
+  <path d="M100 420 L300 420" stroke="#ffd600" stroke-width="1.5" opacity="0.4"/>
+  <rect width="400" height="560" fill="url(#bel_overlay)"/>
+  <text x="200" y="475" text-anchor="middle" fill="#ffffff" font-family="'Inter', sans-serif" font-size="24" font-weight="900" letter-spacing="4">BELIEVER</text>
+  <text x="200" y="505" text-anchor="middle" fill="#ff6e40" font-family="'Inter', sans-serif" font-size="13" font-weight="700" letter-spacing="2">IMAGINE DRAGONS</text>
+</svg>
