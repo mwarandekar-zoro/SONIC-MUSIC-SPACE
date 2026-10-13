@@ -1,9 +1,41 @@
-.landing { position: absolute; inset: 0; display: grid; place-items: end start; padding: clamp(24px, 6vw, 88px); padding-bottom: calc(clamp(32px, 9vh, 96px) + var(--safe-bottom)); background: radial-gradient(120% 90% at 20% 100%, rgba(6, 5, 11, 0.92) 0%, rgba(6, 5, 11, 0.35) 55%, transparent 80%); z-index: 10; }
-.inner { max-width: 720px; }
-.wordmark { font-family: var(--font-display); font-weight: 800; font-size: clamp(44px, 10vw, 128px); line-height: 0.92; letter-spacing: -0.03em; margin: 0; }
+.landing {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: end start;
+  padding: clamp(20px, 4.5vw, 64px);
+  padding-bottom: calc(clamp(28px, 7vh, 72px) + var(--safe-bottom));
+  background: radial-gradient(120% 90% at 20% 100%, rgba(6, 5, 11, 0.92) 0%, rgba(6, 5, 11, 0.35) 55%, transparent 80%);
+  z-index: 10;
+  overflow: hidden;
+}
+.inner {
+  width: 100%;
+  max-width: min(92vw, 860px);
+}
+.wordmark {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(26px, 5.6vw, 76px);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  margin: 0;
+  white-space: nowrap;
+  max-width: 100%;
+}
 .slash { color: var(--violet); }
-.tagline { margin: 22px 0 34px; max-width: 34ch; color: var(--muted); font-size: clamp(15px, 1.6vw, 18px); }
-.enter { display: inline-flex; align-items: center; gap: 14px; padding: 16px 28px; background: var(--text); color: var(--ink); border: 0; border-radius: 999px; font-weight: 600; font-size: 16px; cursor: pointer; transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), background 0.35s var(--ease); }
+.tagline { margin: 20px 0 28px; max-width: 36ch; color: var(--muted); font-size: clamp(14px, 1.4vw, 17px); }
+.enter { display: inline-flex; align-items: center; gap: 14px; padding: 15px 28px; background: var(--text); color: var(--ink); border: 0; border-radius: 999px; font-weight: 600; font-size: 15px; cursor: pointer; transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), background 0.35s var(--ease); }
 .enter:hover { transform: translateY(-2px); background: #fff; box-shadow: 0 10px 40px -8px var(--violet); }
 .enter:active { transform: translateY(0); }
-.note { margin: 18px 0 0; font-size: 13px; color: var(--muted); }
+.note { margin: 16px 0 0; font-size: 13px; color: var(--muted); }
+
+@media (max-width: 480px) {
+  .wordmark {
+    font-size: clamp(22px, 7vw, 32px);
+  }
+  .tagline {
+    margin: 16px 0 22px;
+  }
+}
+
