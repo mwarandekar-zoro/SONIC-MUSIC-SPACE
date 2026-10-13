@@ -77,7 +77,7 @@ export const BUILT_IN_TRACKS = [
     "accentColor": "#ff3d00",
     "badge": "HI-RES 24-BIT",
     "src": "/music/believer.mp3",
-    "artwork": "/artwork/believer.svg",
+    "artwork": "/artwork/believer.png",
     "duration": 341,
     "description": "Explosive tribal drums and heavy bass rock dynamics."
   },
