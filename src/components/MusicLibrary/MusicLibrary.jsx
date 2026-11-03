@@ -23,20 +23,52 @@ export default function MusicLibrary() {
   const removeFromQueue = useVisualizerStore((s) => s.removeFromQueue)
   const clearQueue = useVisualizerStore((s) => s.clearQueue)
 
-  const [activeTab, setActiveTab] = useState('carousel') // 'carousel' | 'grid' | 'queue'
+  const [activeTab, setActiveTab] = useState('carousel') // 'carousel' | 'grid' | 'hindi' | 'queue'
   const [query, setQuery] = useState('')
   const [selectedGenre, setSelectedGenre] = useState('All')
+  const [selectedLanguage, setSelectedLanguage] = useState('All') // 'All' | 'Hindi' | 'English'
 
   useDialogFocus(ref)
 
-  const genres = useMemo(() => getLibraryGenres(), [])
+  const hindiCount = useMemo(
+    () => library.filter((t) => t.language === 'Hindi').length,
+    [library]
+  )
+
+  const effectiveLanguage = activeTab === 'hindi' ? 'Hindi' : selectedLanguage
+  const genres = useMemo(() => getLibraryGenres(effectiveLanguage), [effectiveLanguage])
+  const languages = useMemo(() => ['All', 'Hindi', 'English'], [])
+
+  const handleTabChange = (tab) => {
+    setActiveTab(tab)
+    setSelectedGenre('All')
+    if (tab === 'hindi') {
+      setSelectedLanguage('Hindi')
+    }
+  }
+
+  const handleLanguageChange = (lang) => {
+    setSelectedLanguage(lang)
+    setSelectedGenre('All')
+  }
 
   // Filtered tracks
   const filteredTracks = useMemo(() => {
     return library.filter((track) => {
+      // Language filter
+      if (activeTab === 'hindi') {
+        if (track.language !== 'Hindi') return false
+      } else if (selectedLanguage !== 'All') {
+        if (track.language !== selectedLanguage) return false
+      }
+
+      // Genre filter
       const matchGenre = selectedGenre === 'All' || track.genre === selectedGenre
+
+      // Search query filter
       const q = query.trim().toLowerCase()
       if (!q) return matchGenre
+
       const matchQuery =
         (track.title || track.name || '').toLowerCase().includes(q) ||
         (track.artist || '').toLowerCase().includes(q) ||
@@ -44,7 +76,7 @@ export default function MusicLibrary() {
         (track.genre || '').toLowerCase().includes(q)
       return matchGenre && matchQuery
     })
-  }, [library, selectedGenre, query])
+  }, [library, activeTab, selectedLanguage, selectedGenre, query])
 
   const handleSelectTrack = (track) => {
     loadBuiltInTrack(track)
@@ -79,26 +111,33 @@ export default function MusicLibrary() {
               SONIC<span>//</span>LIBRARY
             </h2>
             <span className={styles.trackCounter}>
-              {library.length} built-in tracks
+              {library.length} tracks • {hindiCount} Hindi
             </span>
           </div>
 
           <div className={styles.tabsRow}>
             <button
               className={`${styles.tabBtn} ${activeTab === 'carousel' ? styles.tabBtnActive : ''}`}
-              onClick={() => setActiveTab('carousel')}
+              onClick={() => handleTabChange('carousel')}
             >
               3D Carousel
             </button>
             <button
               className={`${styles.tabBtn} ${activeTab === 'grid' ? styles.tabBtnActive : ''}`}
-              onClick={() => setActiveTab('grid')}
+              onClick={() => handleTabChange('grid')}
             >
               All Tracks
             </button>
             <button
+              className={`${styles.tabBtn} ${styles.hindiTabBtn} ${activeTab === 'hindi' ? styles.hindiTabActive : ''}`}
+              onClick={() => handleTabChange('hindi')}
+              title="Explore 30 Bollywood & Hindi tracks"
+            >
+              🇮🇳 Hindi Songs <span className={styles.hindiCountBadge}>{hindiCount}</span>
+            </button>
+            <button
               className={`${styles.tabBtn} ${activeTab === 'queue' ? styles.tabBtnActive : ''}`}
-              onClick={() => setActiveTab('queue')}
+              onClick={() => handleTabChange('queue')}
             >
               Queue ({queue.length})
             </button>
@@ -132,6 +171,9 @@ export default function MusicLibrary() {
                 selectedGenre={selectedGenre}
                 onSelectGenre={setSelectedGenre}
                 genres={genres}
+                selectedLanguage={selectedLanguage}
+                onSelectLanguage={handleLanguageChange}
+                languages={languages}
                 totalCount={filteredTracks.length}
               />
               <GlassyCarousel
@@ -145,6 +187,30 @@ export default function MusicLibrary() {
           )}
 
           {activeTab === 'grid' && (
+            <>
+              <LibrarySearch
+                query={query}
+                onQueryChange={setQuery}
+                selectedGenre={selectedGenre}
+                onSelectGenre={setSelectedGenre}
+                genres={genres}
+                selectedLanguage={selectedLanguage}
+                onSelectLanguage={handleLanguageChange}
+                languages={languages}
+                totalCount={filteredTracks.length}
+              />
+              <TrackList
+                tracks={filteredTracks}
+                currentTrack={currentTrack}
+                isPlaying={isPlaying}
+                onPlayTrack={handleSelectTrack}
+                onAddToQueue={addToQueue}
+                onUploadClick={openFilePicker}
+              />
+            </>
+          )}
+
+          {activeTab === 'hindi' && (
             <>
               <LibrarySearch
                 query={query}

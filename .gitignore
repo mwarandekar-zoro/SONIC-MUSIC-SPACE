@@ -25,4 +25,5 @@ pnpm-debug.log*
 *.sw?
 
 # Raw media staging / local folders
-MUSIC/
+/MUSIC/
+/hindi songs/

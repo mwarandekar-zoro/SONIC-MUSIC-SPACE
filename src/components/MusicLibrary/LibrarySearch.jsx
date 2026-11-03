@@ -7,6 +7,9 @@ export default function LibrarySearch({
   selectedGenre,
   onSelectGenre,
   genres,
+  selectedLanguage,
+  onSelectLanguage,
+  languages,
   totalCount,
 }) {
   return (
@@ -33,6 +36,22 @@ export default function LibrarySearch({
           </button>
         )}
       </div>
+
+      {languages && languages.length > 1 && (
+        <div className={styles.langList} role="tablist" aria-label="Filter by language">
+          {languages.map((lang) => (
+            <button
+              key={lang}
+              role="tab"
+              aria-selected={selectedLanguage === lang}
+              className={`${styles.langChip} ${selectedLanguage === lang ? styles.langChipActive : ''}`}
+              onClick={() => onSelectLanguage(lang)}
+            >
+              {lang === 'Hindi' ? '🇮🇳 Hindi' : lang === 'English' ? '🌐 English' : 'All Tracks'}
+            </button>
+          ))}
+        </div>
+      )}
 
       {genres && genres.length > 1 && (
         <div className={styles.genresList} role="tablist" aria-label="Filter by genre">

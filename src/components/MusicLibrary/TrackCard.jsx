@@ -63,6 +63,7 @@ export default function TrackCard({
       <div className={styles.cardInfo}>
         <div className={styles.cardTitleRow}>
           <h4 className={styles.cardTitle}>{track.title || track.name}</h4>
+          {track.language === 'Hindi' && <span className={styles.hindiPill}>HINDI</span>}
           {track.genre && <span className={styles.cardGenre}>{track.genre}</span>}
         </div>
         <p className={styles.cardArtist}>{track.artist || 'Unknown Artist'}</p>

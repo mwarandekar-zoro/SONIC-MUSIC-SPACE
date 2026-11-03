@@ -1,16 +1,21 @@
+import hindiTracks from './hindiTracks.js'
+
 /**
  * SONIC//SPACE — Built-in Music Library Data
  *
  * Contains 20 English hit songs imported from MUSIC/ENGLISH SONGS,
+ * 30 Hindi hit songs imported from hindi songs,
  * plus the demo visualizer testing track.
  *
  * HOW TO ADD MORE SONGS:
- * 1. Place your audio file inside: /public/music/
- * 2. (Optional) Place your cover image inside: /public/artwork/
- * 3. Add an entry below with unique id, title, artist, src, and artwork.
+ * 1. Place your audio file inside: /public/music/ or /public/music/hindi/
+ * 2. (Optional) Place your cover image inside: /public/artwork/ or /public/artwork/hindi/
+ * 3. Add an entry below with unique id, title, artist, src, artwork, and language.
  */
 
-export const BUILT_IN_TRACKS = [
+export const HINDI_TRACKS = hindiTracks
+
+export const ENGLISH_TRACKS = [
   {
     "id": "track-demo",
     "title": "Neon Odyssey",
@@ -305,7 +310,9 @@ export const BUILT_IN_TRACKS = [
     "duration": 137,
     "description": "Fast-paced pulsating 80s synth chords and infectious vocal hook."
   }
-]
+].map((t) => ({ language: 'English', ...t }))
+
+export const BUILT_IN_TRACKS = [...ENGLISH_TRACKS, ...HINDI_TRACKS]
 
 /** Helper to find track by ID */
 export function getTrackById(id) {
@@ -313,7 +320,11 @@ export function getTrackById(id) {
 }
 
 /** Helper to get all available genres */
-export function getLibraryGenres() {
-  const genres = new Set(BUILT_IN_TRACKS.map((t) => t.genre).filter(Boolean))
+export function getLibraryGenres(language = 'All') {
+  const tracks =
+    language === 'All'
+      ? BUILT_IN_TRACKS
+      : BUILT_IN_TRACKS.filter((t) => t.language === language)
+  const genres = new Set(tracks.map((t) => t.genre).filter(Boolean))
   return ['All', ...Array.from(genres)]
 }
