@@ -478,6 +478,22 @@ export const HINDI_TRACKS = [
     "artwork": "/artwork/hindi/saudebaazi.jpg",
     "duration": 587,
     "description": "Subtle guitar picking and passionate singing by Javed Ali celebrating unconditional devotion."
+  },
+  {
+    "id": "hindi-31",
+    "title": "Surili Akhiyon Wale",
+    "artist": "Rahat Fateh Ali Khan & Suzanne D'Mello",
+    "album": "Veer",
+    "genre": "Romantic Sufi",
+    "year": "2010",
+    "rating": "9.6",
+    "accentColor": "#e67e22",
+    "badge": "TIMELESS CLASSIC",
+    "language": "Hindi",
+    "src": "/music/hindi/surili-akhiyon-wale.mp3",
+    "artwork": "/artwork/hindi/surili-akhiyon-wale.jpg",
+    "duration": 332,
+    "description": "Enchanting melodic duet featuring Rahat Fateh Ali Khan soulful vocals and Suzanne D'Mello harmonies from Veer."
   }
 ];
 export default HINDI_TRACKS;
