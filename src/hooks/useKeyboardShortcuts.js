@@ -41,6 +41,7 @@ export default function useKeyboardShortcuts() {
         case '?': togglePanel('help'); break
         case 'e': toggleEnvOpen(); break
         case 'f': toggleFullscreen(); break
+        case 'c': useVisualizerStore.getState().cycleCursorStyle(); break
         case 'escape': if (panel) closePanel(); break
         default: {
           const mode = MODES[Number(e.key) - 1] // keys 1-5

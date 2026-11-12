@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 import { DEFAULT_ENVIRONMENT, ENVIRONMENTS } from '../constants/environments'
-import { DEFAULT_SETTINGS } from '../constants/settings'
+import { DEFAULT_SETTINGS, CURSOR_OPTIONS, DEFAULT_CURSOR_STYLE } from '../constants/settings'
 import { DEFAULT_MODE, MODES } from '../constants/modes'
 
 import { BUILT_IN_TRACKS } from '../data/musicLibrary'
@@ -96,6 +96,19 @@ export const useVisualizerStore = create(
       setSetting: (key, value) => set((s) => ({ settings: { ...s.settings, [key]: value } })),
       resetSettings: () => set({ settings: DEFAULT_SETTINGS }),
 
+      // Cursor customization: 'cyber' | 'crosshair' | 'orb' | 'arrow' | 'default'
+      cursorStyle: DEFAULT_CURSOR_STYLE,
+      setCursorStyle: (cursorStyle) => set({ cursorStyle }),
+      cycleCursorStyle: () =>
+        set((s) => {
+          const ids = CURSOR_OPTIONS.map((c) => c.id)
+          const idx = ids.indexOf(s.cursorStyle)
+          const next = ids[(idx + 1) % ids.length]
+          const opt = CURSOR_OPTIONS.find((c) => c.id === next)
+          s.pushToast(`Cursor: ${opt?.label || next}`, 'info')
+          return { cursorStyle: next }
+        }),
+
       panel: null, // null | 'settings' | 'help' | 'library' | 'queue'
       togglePanel: (name) => set((s) => ({ panel: s.panel === name ? null : name })),
       closePanel: () => set({ panel: null }),
@@ -111,7 +124,14 @@ export const useVisualizerStore = create(
     {
       name: 'sonic-space:v1',
       version: 1,
-      partialize: (s) => ({ environment: s.environment, mode: s.mode, settings: s.settings, volume: s.volume, muted: s.muted }),
+      partialize: (s) => ({
+        environment: s.environment,
+        mode: s.mode,
+        settings: s.settings,
+        volume: s.volume,
+        muted: s.muted,
+        cursorStyle: s.cursorStyle,
+      }),
       // Never trust saved data blindly: fall back to defaults if it is missing or invalid.
       merge: (saved, current) => {
         const s = saved ?? {}
@@ -122,6 +142,7 @@ export const useVisualizerStore = create(
           settings: { ...DEFAULT_SETTINGS, ...(s.settings ?? {}) },
           volume: typeof s.volume === 'number' ? Math.min(1, Math.max(0, s.volume)) : current.volume,
           muted: Boolean(s.muted),
+          cursorStyle: CURSOR_OPTIONS.some((c) => c.id === s.cursorStyle) ? s.cursorStyle : DEFAULT_CURSOR_STYLE,
         }
       },
     },

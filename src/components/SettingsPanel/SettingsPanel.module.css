@@ -12,4 +12,59 @@
 .toggle input { width: 20px; height: 20px; flex: none; accent-color: var(--violet); cursor: pointer; }
 .reset { margin-top: 14px; padding: 10px; background: none; border: 1px solid var(--line-strong); border-radius: var(--radius-s); cursor: pointer; transition: background 0.3s var(--ease); }
 .reset:hover { background: rgba(255, 255, 255, 0.08); }
+
+/* Cursor Selector */
+.cursorSection {
+  display: grid;
+  gap: 10px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.cursorGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.cursorBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s var(--ease);
+}
+
+.cursorBtn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  border-color: var(--line-strong);
+}
+
+.cursorBtnActive {
+  background: rgba(154, 134, 255, 0.18);
+  border-color: var(--violet);
+  color: #fff;
+  box-shadow: 0 0 12px rgba(154, 134, 255, 0.25);
+}
+
+.cursorIcon {
+  font-size: 14px;
+  color: var(--pulse);
+  flex: none;
+}
+
+.cursorName {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 @media (max-width: 760px) { .drawer { top: 64px; bottom: 150px; } }

@@ -8,6 +8,16 @@ export const SETTING_DEFS = [
   { key: 'cameraMovement', label: 'Camera movement', hint: 'How much the camera drifts and pulses', min: 0, max: 1.5, step: 0.05 },
 ]
 
+export const CURSOR_OPTIONS = [
+  { id: 'cyber', label: 'Cyber Ring', icon: '◎', hint: 'Neon core with smooth trailing aura' },
+  { id: 'crosshair', label: 'HUD Reticle', icon: '✛', hint: 'Futuristic targeting crosshair' },
+  { id: 'orb', label: 'Pulse Orb', icon: '●', hint: 'Luminous energy sphere' },
+  { id: 'arrow', label: 'Cyber Arrow', icon: '▲', hint: 'Sleek angular sci-fi pointer' },
+  { id: 'default', label: 'Default OS', icon: '↖', hint: 'Standard system cursor' },
+]
+
+export const DEFAULT_CURSOR_STYLE = 'cyber'
+
 export const DEFAULT_SETTINGS = {
   sensitivity: 1,
   beatResponse: 1,

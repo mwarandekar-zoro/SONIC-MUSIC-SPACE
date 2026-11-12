@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import { motion } from 'framer-motion'
 import { useVisualizerStore } from '../../store/visualizerStore'
-import { SETTING_DEFS } from '../../constants/settings'
+import { SETTING_DEFS, CURSOR_OPTIONS } from '../../constants/settings'
 import useDialogFocus from '../../hooks/useDialogFocus'
 import Slider from '../UI/Slider'
 import { CloseIcon } from '../UI/Icons'
@@ -13,6 +13,8 @@ export default function SettingsPanel() {
   const settings = useVisualizerStore((s) => s.settings)
   const setSetting = useVisualizerStore((s) => s.setSetting)
   const resetSettings = useVisualizerStore((s) => s.resetSettings)
+  const cursorStyle = useVisualizerStore((s) => s.cursorStyle)
+  const setCursorStyle = useVisualizerStore((s) => s.setCursorStyle)
   const closePanel = useVisualizerStore((s) => s.closePanel)
   useDialogFocus(ref)
 
@@ -34,6 +36,31 @@ export default function SettingsPanel() {
       </div>
 
       <div className={styles.list}>
+        {/* Interactive Cursor Selection */}
+        <div className={styles.cursorSection}>
+          <div className={styles.labels}>
+            <span className={styles.label}>Cursor Style</span>
+            <span className={styles.value}>
+              {CURSOR_OPTIONS.find((c) => c.id === cursorStyle)?.label}
+            </span>
+          </div>
+          <div className={styles.cursorGrid}>
+            {CURSOR_OPTIONS.map((opt) => (
+              <button
+                key={opt.id}
+                type="button"
+                className={`${styles.cursorBtn} ${cursorStyle === opt.id ? styles.cursorBtnActive : ''}`}
+                onClick={() => setCursorStyle(opt.id)}
+                title={opt.hint}
+              >
+                <span className={styles.cursorIcon}>{opt.icon}</span>
+                <span className={styles.cursorName}>{opt.label}</span>
+              </button>
+            ))}
+          </div>
+          <span className={styles.hint}>Tip: Press &apos;C&apos; key anytime to cycle styles</span>
+        </div>
+
         {SETTING_DEFS.map(({ key, label, hint, min, max, step }) => (
           <div key={key} className={styles.row}>
             <div className={styles.labels}>

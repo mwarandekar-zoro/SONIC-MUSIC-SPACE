@@ -9,8 +9,10 @@
   overflow: hidden;
 }
 
-/* Sharp inner glowing dot */
-.cursorDot {
+/* =========================================
+   STYLE 1: CYBER RING (Dot + Trailing Ring)
+   ========================================= */
+.cyberDot {
   position: absolute;
   top: 0;
   left: 0;
@@ -18,18 +20,16 @@
   height: 8px;
   background: #ffffff;
   border-radius: 50%;
-  pointer-events: none;
   box-shadow:
     0 0 10px #9a86ff,
     0 0 20px #05d5ff,
     0 0 30px rgba(154, 134, 255, 0.8);
   transform: translate(-50%, -50%);
-  transition: transform 0.12s ease-out, background-color 0.2s ease, opacity 0.2s ease;
+  transition: transform 0.12s ease-out, background-color 0.2s ease;
   will-change: transform;
 }
 
-/* Smooth trailing ring */
-.cursorRing {
+.cyberRing {
   position: absolute;
   top: 0;
   left: 0;
@@ -37,39 +37,32 @@
   height: 36px;
   border-radius: 50%;
   border: 1.5px solid rgba(154, 134, 255, 0.65);
-  box-shadow: 0 0 15px rgba(154, 134, 255, 0.35);
+  box-shadow: 0 0 16px rgba(154, 134, 255, 0.35);
   background: rgba(154, 134, 255, 0.04);
-  pointer-events: none;
   transform: translate(-50%, -50%);
   transition:
     width 0.25s cubic-bezier(0.22, 1, 0.36, 1),
     height 0.25s cubic-bezier(0.22, 1, 0.36, 1),
     border-color 0.25s ease,
     background-color 0.25s ease,
-    box-shadow 0.25s ease,
-    opacity 0.25s ease;
+    box-shadow 0.25s ease;
   will-change: transform, width, height;
 }
 
-/* Hover state on interactive elements */
-.hovering .cursorRing {
+.hovering .cyberRing {
   width: 54px;
   height: 54px;
   border-color: #05d5ff;
   background: rgba(5, 213, 255, 0.12);
-  box-shadow:
-    0 0 24px rgba(5, 213, 255, 0.45),
-    inset 0 0 12px rgba(5, 213, 255, 0.2);
+  box-shadow: 0 0 24px rgba(5, 213, 255, 0.45), inset 0 0 12px rgba(5, 213, 255, 0.2);
 }
 
-.hovering .cursorDot {
+.hovering .cyberDot {
   transform: translate(-50%, -50%) scale(0.65);
   background: #05d5ff;
-  box-shadow: 0 0 16px #05d5ff, 0 0 30px #05d5ff;
 }
 
-/* Active click state */
-.clicking .cursorRing {
+.clicking .cyberRing {
   width: 24px;
   height: 24px;
   border-color: #ff4fa3;
@@ -77,13 +70,130 @@
   box-shadow: 0 0 25px #ff4fa3;
 }
 
-.clicking .cursorDot {
+.clicking .cyberDot {
   transform: translate(-50%, -50%) scale(1.6);
   background: #ff4fa3;
-  box-shadow: 0 0 20px #ff4fa3, 0 0 40px #ff4fa3;
+  box-shadow: 0 0 20px #ff4fa3;
 }
 
-/* Hide when off-screen */
+/* =========================================
+   STYLE 2: HUD RETICLE (Crosshair)
+   ========================================= */
+.crosshairDot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 4px;
+  background: #05d5ff;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #05d5ff;
+  transform: translate(-50%, -50%);
+  will-change: transform;
+}
+
+.crosshairReticle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease, transform 0.25s ease;
+  will-change: transform;
+}
+
+.crosshairCorner {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-color: #05d5ff;
+  border-style: solid;
+  filter: drop-shadow(0 0 4px rgba(5, 213, 255, 0.6));
+}
+
+.tl { top: 0; left: 0; border-width: 2px 0 0 2px; }
+.tr { top: 0; right: 0; border-width: 2px 2px 0 0; }
+.bl { bottom: 0; left: 0; border-width: 0 0 2px 2px; }
+.br { bottom: 0; right: 0; border-width: 0 2px 2px 0; }
+
+.hovering .crosshairReticle {
+  width: 46px;
+  height: 46px;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.hovering .crosshairCorner {
+  border-color: #ff4fa3;
+  filter: drop-shadow(0 0 6px rgba(255, 79, 163, 0.8));
+}
+
+.clicking .crosshairReticle {
+  width: 20px;
+  height: 20px;
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+/* =========================================
+   STYLE 3: PULSE ORB
+   ========================================= */
+.pulseOrb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #ffffff 0%, #05d5ff 40%, #9a86ff 80%);
+  box-shadow:
+    0 0 15px #05d5ff,
+    0 0 30px rgba(154, 134, 255, 0.6),
+    inset 0 0 8px rgba(255, 255, 255, 0.8);
+  transform: translate(-50%, -50%);
+  transition: width 0.22s ease, height 0.22s ease, transform 0.2s ease, filter 0.2s ease;
+  will-change: transform;
+}
+
+.hovering .pulseOrb {
+  width: 44px;
+  height: 44px;
+  filter: hue-rotate(60deg) brightness(1.2);
+  box-shadow: 0 0 35px #00ffcc, 0 0 60px rgba(0, 255, 204, 0.5);
+}
+
+.clicking .pulseOrb {
+  width: 18px;
+  height: 18px;
+  filter: hue-rotate(180deg) brightness(1.4);
+  box-shadow: 0 0 25px #ff4fa3, 0 0 50px #ff4fa3;
+}
+
+/* =========================================
+   STYLE 4: CYBER ARROW
+   ========================================= */
+.cyberArrow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 28px;
+  height: 28px;
+  will-change: transform;
+  transform: translate(0, 0);
+  filter: drop-shadow(0 0 8px #9a86ff) drop-shadow(0 0 16px rgba(5, 213, 255, 0.7));
+  transition: transform 0.15s ease, filter 0.2s ease;
+}
+
+.hovering .cyberArrow {
+  transform: scale(1.2) translate(-2px, -2px);
+  filter: drop-shadow(0 0 12px #05d5ff) drop-shadow(0 0 24px #05d5ff);
+}
+
+.clicking .cyberArrow {
+  transform: scale(0.9) translate(1px, 1px);
+  filter: drop-shadow(0 0 15px #ff4fa3) drop-shadow(0 0 30px #ff4fa3);
+}
+
+/* Common states */
 .hidden {
   opacity: 0 !important;
 }
