@@ -5,6 +5,7 @@ import Landing from './components/Landing/Landing'
 import Experience from './Experience'
 import LoadingScreen from './components/UI/LoadingScreen'
 import ToastHost from './components/UI/Toast'
+import CustomCursor from './components/UI/CustomCursor'
 import { useVisualizerStore } from './store/visualizerStore'
 import useBoot from './hooks/useBoot'
 
@@ -14,6 +15,7 @@ export default function App() {
 
   return (
     <main style={{ position: 'relative', width: '100%', height: '100%', overflow: 'hidden' }}>
+      <CustomCursor />
       {/* The 3D world stays mounted the whole time, so entering feels continuous. */}
       <SceneBoundary onFail={onSceneReady}>
         <Scene onReady={onSceneReady} />

@@ -41,6 +41,13 @@ button { font: inherit; color: inherit; }
   border-radius: var(--radius-s);
 }
 
+/* Custom Cyber Glow Cursor styles: hide standard OS pointer on desktop fine pointer devices */
+@media (hover: hover) and (pointer: fine) {
+  body, button, a, input, select, textarea, [role="button"], [role="tab"], [role="slider"] {
+    cursor: none !important;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

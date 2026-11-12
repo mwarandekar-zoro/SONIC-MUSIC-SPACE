@@ -1,0 +1,95 @@
+.cursorContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 99999;
+  overflow: hidden;
+}
+
+/* Sharp inner glowing dot */
+.cursorDot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background: #ffffff;
+  border-radius: 50%;
+  pointer-events: none;
+  box-shadow:
+    0 0 10px #9a86ff,
+    0 0 20px #05d5ff,
+    0 0 30px rgba(154, 134, 255, 0.8);
+  transform: translate(-50%, -50%);
+  transition: transform 0.12s ease-out, background-color 0.2s ease, opacity 0.2s ease;
+  will-change: transform;
+}
+
+/* Smooth trailing ring */
+.cursorRing {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(154, 134, 255, 0.65);
+  box-shadow: 0 0 15px rgba(154, 134, 255, 0.35);
+  background: rgba(154, 134, 255, 0.04);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition:
+    width 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    height 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease,
+    opacity 0.25s ease;
+  will-change: transform, width, height;
+}
+
+/* Hover state on interactive elements */
+.hovering .cursorRing {
+  width: 54px;
+  height: 54px;
+  border-color: #05d5ff;
+  background: rgba(5, 213, 255, 0.12);
+  box-shadow:
+    0 0 24px rgba(5, 213, 255, 0.45),
+    inset 0 0 12px rgba(5, 213, 255, 0.2);
+}
+
+.hovering .cursorDot {
+  transform: translate(-50%, -50%) scale(0.65);
+  background: #05d5ff;
+  box-shadow: 0 0 16px #05d5ff, 0 0 30px #05d5ff;
+}
+
+/* Active click state */
+.clicking .cursorRing {
+  width: 24px;
+  height: 24px;
+  border-color: #ff4fa3;
+  background: rgba(255, 79, 163, 0.3);
+  box-shadow: 0 0 25px #ff4fa3;
+}
+
+.clicking .cursorDot {
+  transform: translate(-50%, -50%) scale(1.6);
+  background: #ff4fa3;
+  box-shadow: 0 0 20px #ff4fa3, 0 0 40px #ff4fa3;
+}
+
+/* Hide when off-screen */
+.hidden {
+  opacity: 0 !important;
+}
+
+@media (pointer: coarse), (hover: none) {
+  .cursorContainer {
+    display: none !important;
+  }
+}
