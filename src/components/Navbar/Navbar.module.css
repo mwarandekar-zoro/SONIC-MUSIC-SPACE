@@ -8,4 +8,10 @@
 .iconBtn:hover { border-color: var(--line-strong); transform: scale(1.06); }
 .active { border-color: var(--pulse); color: var(--pulse); box-shadow: 0 0 16px rgba(5, 213, 255, 0.25); }
 @media (max-width: 640px) { .current { display: none; } .keys { display: none; } }
+@media (max-width: 480px) {
+  .nav { padding: 12px 14px; }
+  .brand { font-size: 15px; }
+  .actions { gap: 6px; }
+  .iconBtn { width: 36px; height: 36px; }
+}
 

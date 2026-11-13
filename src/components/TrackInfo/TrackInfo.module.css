@@ -5,3 +5,10 @@
 .meta { margin: 2px 0 0; font-size: 13px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .empty .title { color: var(--muted); font-weight: 500; }
 .artFallback { flex: none; width: 44px; height: 44px; border-radius: 10px; border: 1px solid var(--line); background: rgba(154, 134, 255, 0.1); display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 18px; }
+
+@media (max-width: 480px) {
+  .row { gap: 8px; }
+  .art, .artFallback { width: 36px; height: 36px; border-radius: 8px; }
+  .title { font-size: 13px; }
+  .meta { font-size: 11px; }
+}

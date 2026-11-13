@@ -67,4 +67,16 @@
   text-overflow: ellipsis;
 }
 
-@media (max-width: 760px) { .drawer { top: 64px; bottom: 150px; } }
+@media (max-width: 760px) {
+  .drawer {
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    max-height: 85vh;
+    border-radius: var(--radius-l) var(--radius-l) 0 0;
+    border-bottom: 0;
+    padding: 18px 20px calc(24px + var(--safe-bottom));
+  }
+}

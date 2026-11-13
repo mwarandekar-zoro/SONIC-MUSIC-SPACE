@@ -33,10 +33,12 @@ export default function TrackInfo() {
     typeof track.sizeMB === 'number' ? `${track.sizeMB.toFixed(1)} MB` : (track.genre || null)
   ].filter(Boolean).join(' · ')
 
+  const artSource = track.artworkUrl || track.artwork
+
   return (
     <div className={styles.row}>
-      {track.artworkUrl ? (
-        <img className={styles.art} src={track.artworkUrl} alt={track.title || track.name} width="44" height="44" />
+      {artSource ? (
+        <img className={styles.art} src={artSource} alt={track.title || track.name} width="44" height="44" />
       ) : (
         <div className={styles.artFallback} aria-hidden="true">
           <span>♪</span>
