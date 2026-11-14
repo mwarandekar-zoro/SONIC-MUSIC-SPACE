@@ -30,7 +30,7 @@
 .enter:active { transform: translateY(0); }
 .note { margin: 16px 0 0; font-size: 13px; color: var(--muted); }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .landing {
     padding: 20px;
     padding-bottom: calc(52px + var(--safe-bottom));
