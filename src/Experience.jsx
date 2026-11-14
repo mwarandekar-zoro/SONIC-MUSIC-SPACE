@@ -64,7 +64,7 @@ export default function Experience() {
             title="Exit Galaxy View (G or Esc)"
           >
             <GalaxyIcon />
-            <span>Exit Galaxy View</span>
+            <span>Cinema Mode · UI Hidden</span>
             <kbd>G</kbd>
           </motion.button>
         )}

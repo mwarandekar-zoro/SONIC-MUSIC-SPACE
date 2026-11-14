@@ -76,8 +76,8 @@ export default function SettingsPanel() {
 
         <label className={styles.toggle}>
           <span>
-            <span className={styles.label}>Pure Galaxy View</span>
-            <span className={styles.hint}>Hide all UI & center visualizer to enjoy the drifting space background (G)</span>
+            <span className={styles.label}>Cinema Mode</span>
+            <span className={styles.hint}>Hide all UI buttons & bars to enjoy full visualizer & moving particles (G)</span>
           </span>
           <input type="checkbox" checked={zenMode} onChange={toggleZenMode} />
         </label>

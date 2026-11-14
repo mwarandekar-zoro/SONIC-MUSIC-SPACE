@@ -23,7 +23,6 @@ const START_BACKGROUND = '#07050f'
 export default function Scene({ onReady }) {
   const performanceMode = useVisualizerStore((s) => s.settings.performanceMode)
   const bloomOn = useVisualizerStore((s) => s.settings.bloom > 0)
-  const zenMode = useVisualizerStore((s) => s.zenMode)
   const quality = useMemo(() => getQuality(performanceMode), [performanceMode])
 
   return (
@@ -44,23 +43,17 @@ export default function Scene({ onReady }) {
       <Lighting />
       <CameraRig />
 
-      {/* Moving Background Galaxy (Always Visible) */}
       <StarField key={`stars-${quality.stars}`} count={quality.stars} />
       <Nebula />
-      {!zenMode && <CyberGrid />}
+      <CyberGrid />
       <DeepSpace />
       <Void />
 
-      {/* Foreground Visualizer - Hidden in Pure Galaxy Mode */}
-      {!zenMode && (
-        <>
-          <WaveTerrain key={`terrain-${quality.terrain}`} cols={quality.terrain[0]} rows={quality.terrain[1]} />
-          <SpectrumRing key={`bars-${quality.bars}`} count={quality.bars} />
-          <ParticleField key={`particles-${quality.particles}`} count={quality.particles} />
-          <AudioOrb />
-          <BeatRings />
-        </>
-      )}
+      <WaveTerrain key={`terrain-${quality.terrain}`} cols={quality.terrain[0]} rows={quality.terrain[1]} />
+      <SpectrumRing key={`bars-${quality.bars}`} count={quality.bars} />
+      <ParticleField key={`particles-${quality.particles}`} count={quality.particles} />
+      <AudioOrb />
+      <BeatRings />
 
       {quality.bloom && bloomOn && <Effects />}
     </Canvas>

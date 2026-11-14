@@ -113,12 +113,12 @@ export const useVisualizerStore = create(
       togglePanel: (name) => set((s) => ({ panel: s.panel === name ? null : name })),
       closePanel: () => set({ panel: null }),
 
-      // Pure Galaxy View: hides all UI & center visualizer to enjoy the moving galaxy
+      // Cinema Mode: hides all overlay UI so you see the full 3D visualizer, particles, bass & galaxy
       zenMode: false,
       toggleZenMode: () =>
         set((s) => {
           const next = !s.zenMode
-          s.pushToast(next ? 'Galaxy View enabled (Press G or Esc to exit)' : 'Exited Galaxy View', 'info')
+          s.pushToast(next ? 'Cinema Mode: UI hidden · Full visualizer & particles active (Press G to exit)' : 'Exited Cinema Mode', 'info')
           return { zenMode: next, panel: null }
         }),
       setZenMode: (zenMode) => set({ zenMode }),

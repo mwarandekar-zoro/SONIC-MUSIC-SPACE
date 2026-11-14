@@ -20,8 +20,8 @@ export default function Navbar({ hidden = false }) {
         <button
           className={`${styles.iconBtn} ${zenMode ? styles.active : ''}`}
           onClick={toggleZenMode}
-          aria-label="Pure Galaxy mode"
-          title="Pure Galaxy View (G)"
+          aria-label="Cinema mode"
+          title="Cinema Mode: Hide UI (G)"
         >
           <GalaxyIcon />
         </button>
