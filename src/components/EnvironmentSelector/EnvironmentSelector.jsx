@@ -7,9 +7,13 @@ export default function EnvironmentSelector({ hidden = false }) {
   const setEnvironment = useVisualizerStore((s) => s.setEnvironment)
   const open = useVisualizerStore((s) => s.envOpen)
   const toggleOpen = useVisualizerStore((s) => s.toggleEnvOpen)
+  const hasTrack = useVisualizerStore((s) => Boolean(s.track))
 
   return (
-    <nav className={`${styles.rail} ${hidden ? styles.hidden : ''}`} aria-label="Environments">
+    <nav
+      className={`${styles.rail} ${hasTrack ? styles.withTrack : styles.noTrack} ${hidden ? styles.hidden : ''}`}
+      aria-label="Environments"
+    >
       <button className={styles.head} onClick={toggleOpen} aria-expanded={open} aria-controls="env-list">
         Worlds <kbd>E</kbd>
       </button>

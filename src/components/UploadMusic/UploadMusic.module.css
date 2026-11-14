@@ -12,3 +12,35 @@
 .hidden { display: none; }
 .overlay { position: fixed; inset: 0; z-index: 40; display: grid; place-items: center; background: rgba(6, 5, 11, 0.78); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); pointer-events: none; }
 .ring { display: grid; place-items: center; width: min(86vw, 420px); aspect-ratio: 1; border-radius: 50%; border: 2px dashed var(--violet); font-family: var(--font-display); font-weight: 700; font-size: 26px; color: var(--text); }
+
+@media (max-width: 640px) {
+  .panel {
+    width: calc(100vw - 24px);
+    top: 44%;
+    padding: 24px 18px 20px;
+    border-radius: var(--radius-m);
+  }
+  .title {
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+  .hint {
+    font-size: 13px;
+    margin-bottom: 18px;
+  }
+  .btnGroup {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+  .pick, .libraryBtn {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 18px;
+    font-size: 14px;
+  }
+  .formats {
+    margin-top: 14px;
+    font-size: 11px;
+  }
+}

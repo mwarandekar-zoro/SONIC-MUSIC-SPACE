@@ -25,8 +25,12 @@ export default function MusicPlayer() {
           exit={{ opacity: 0, y: 24 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
-          <TrackInfo />
-          <PlaybackControls />
+          <div className={styles.trackCol}>
+            <TrackInfo />
+          </div>
+          <div className={styles.controlsCol}>
+            <PlaybackControls />
+          </div>
           <div className={styles.side}>
             <button
               className={`${styles.btn} ${panel === 'library' ? styles.btnActive : ''}`}
@@ -41,7 +45,9 @@ export default function MusicPlayer() {
             </button>
             <VolumeControl />
           </div>
-          <ProgressBar />
+          <div className={styles.progressCol}>
+            <ProgressBar />
+          </div>
         </motion.section>
       )}
     </AnimatePresence>
