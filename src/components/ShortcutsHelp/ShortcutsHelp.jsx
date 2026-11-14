@@ -13,6 +13,7 @@ const SHORTCUTS = [
   ['M', 'Mute audio'],
   ['1 – 5', 'Visualizer mode'],
   ['S', 'Open settings'],
+  ['G', 'Toggle pure Galaxy mode'],
   ['C', 'Cycle cursor style'],
   ['E', 'Show or hide environments'],
   ['F', 'Fullscreen'],

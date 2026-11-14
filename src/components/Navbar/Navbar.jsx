@@ -2,19 +2,29 @@ import { useVisualizerStore } from '../../store/visualizerStore'
 import { getEnvironment } from '../../constants/environments'
 import { toggleFullscreen } from '../../utils/fullscreen'
 import { takeScreenshot } from '../../utils/screenshot'
-import { CameraIcon, FullscreenIcon, KeyboardIcon, LibraryIcon, SettingsIcon } from '../UI/Icons'
+import { CameraIcon, FullscreenIcon, GalaxyIcon, KeyboardIcon, LibraryIcon, SettingsIcon } from '../UI/Icons'
 import styles from './Navbar.module.css'
 
 export default function Navbar({ hidden = false }) {
   const environment = useVisualizerStore((s) => s.environment)
   const panel = useVisualizerStore((s) => s.panel)
   const togglePanel = useVisualizerStore((s) => s.togglePanel)
+  const zenMode = useVisualizerStore((s) => s.zenMode)
+  const toggleZenMode = useVisualizerStore((s) => s.toggleZenMode)
 
   return (
     <header className={`${styles.nav} ${hidden ? styles.hidden : ''}`}>
       <div className={styles.brand}>SONIC<span>//</span>SPACE</div>
       <div className={styles.current} aria-live="polite">{getEnvironment(environment).label}</div>
       <div className={styles.actions}>
+        <button
+          className={`${styles.iconBtn} ${zenMode ? styles.active : ''}`}
+          onClick={toggleZenMode}
+          aria-label="Pure Galaxy mode"
+          title="Pure Galaxy View (G)"
+        >
+          <GalaxyIcon />
+        </button>
         <button
           className={`${styles.iconBtn} ${panel === 'library' ? styles.active : ''}`}
           onClick={() => togglePanel('library')}

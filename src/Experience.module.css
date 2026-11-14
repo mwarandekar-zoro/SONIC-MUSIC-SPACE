@@ -1,0 +1,44 @@
+.zenExitBtn {
+  position: absolute;
+  top: clamp(16px, 3vh, 28px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  background: rgba(14, 12, 26, 0.78);
+  border: 1px solid rgba(154, 134, 255, 0.35);
+  border-radius: 999px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 20px rgba(154, 134, 255, 0.25);
+  transition: opacity 0.4s var(--ease), transform 0.3s var(--ease), background 0.3s var(--ease);
+}
+
+.zenExitBtn:hover {
+  background: rgba(154, 134, 255, 0.3);
+  border-color: var(--pulse);
+  transform: translateX(-50%) scale(1.05);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 28px rgba(5, 213, 255, 0.35);
+  opacity: 1 !important;
+}
+
+.zenExitBtn kbd {
+  padding: 2px 7px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 6px;
+  font-size: 11px;
+  font-family: inherit;
+  color: var(--pulse);
+}
+
+.zenExitIdle {
+  opacity: 0;
+  pointer-events: none;
+}

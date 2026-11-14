@@ -30,4 +30,11 @@ export const SearchIcon = () => (<svg {...stroke}><circle cx="11" cy="11" r="8" 
 export const QueueIcon = () => (<svg {...stroke}><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" /></svg>)
 export const PlusIcon = () => (<svg {...stroke}><path d="M12 5v14M5 12h14" /></svg>)
 export const TrashIcon = () => (<svg {...stroke}><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M10 11v6M14 11v6" /></svg>)
+export const GalaxyIcon = () => (
+  <svg {...stroke}>
+    <path d="m12 3 1.9 4.8 4.8 1.9-4.8 1.9L12 16.4l-1.9-4.8-4.8-1.9 4.8-1.9L12 3Z" />
+    <path d="M19 16l.9 2.1 2.1.9-2.1.9-.9 2.1-.9-2.1-2.1-.9 2.1-.9.9-2.1Z" strokeWidth="1.4" />
+    <path d="M5 16l.6 1.4 1.4.6-1.4.6-.6 1.4-.6-1.4-1.4-.6 1.4-.6.6-1.4Z" strokeWidth="1.2" />
+  </svg>
+)
 

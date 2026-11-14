@@ -34,6 +34,7 @@ export default function useKeyboardShortcuts() {
         case 'arrowright': if (ownsArrows(e.target)) return; audioEngine.seekBy(SEEK_SECONDS); break
         case 'm': toggleMuted(); break
         case 'p': takeScreenshot(); break
+        case 'g': useVisualizerStore.getState().toggleZenMode(); break
         case 's': togglePanel('settings'); break
         case 'l': togglePanel('library'); break
         case 'n': playNextTrack(false); break
@@ -42,7 +43,10 @@ export default function useKeyboardShortcuts() {
         case 'e': toggleEnvOpen(); break
         case 'f': toggleFullscreen(); break
         case 'c': useVisualizerStore.getState().cycleCursorStyle(); break
-        case 'escape': if (panel) closePanel(); break
+        case 'escape':
+          if (panel) closePanel();
+          else if (useVisualizerStore.getState().zenMode) useVisualizerStore.getState().toggleZenMode();
+          break
         default: {
           const mode = MODES[Number(e.key) - 1] // keys 1-5
           if (!mode) return

@@ -15,6 +15,8 @@ export default function SettingsPanel() {
   const resetSettings = useVisualizerStore((s) => s.resetSettings)
   const cursorStyle = useVisualizerStore((s) => s.cursorStyle)
   const setCursorStyle = useVisualizerStore((s) => s.setCursorStyle)
+  const zenMode = useVisualizerStore((s) => s.zenMode)
+  const toggleZenMode = useVisualizerStore((s) => s.toggleZenMode)
   const closePanel = useVisualizerStore((s) => s.closePanel)
   useDialogFocus(ref)
 
@@ -71,6 +73,14 @@ export default function SettingsPanel() {
             <span id={`${key}-hint`} className={styles.hint}>{hint}</span>
           </div>
         ))}
+
+        <label className={styles.toggle}>
+          <span>
+            <span className={styles.label}>Pure Galaxy View</span>
+            <span className={styles.hint}>Hide all UI & center visualizer to enjoy the drifting space background (G)</span>
+          </span>
+          <input type="checkbox" checked={zenMode} onChange={toggleZenMode} />
+        </label>
 
         <label className={styles.toggle}>
           <span>

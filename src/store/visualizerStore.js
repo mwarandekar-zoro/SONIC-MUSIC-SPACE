@@ -113,6 +113,16 @@ export const useVisualizerStore = create(
       togglePanel: (name) => set((s) => ({ panel: s.panel === name ? null : name })),
       closePanel: () => set({ panel: null }),
 
+      // Pure Galaxy View: hides all UI & center visualizer to enjoy the moving galaxy
+      zenMode: false,
+      toggleZenMode: () =>
+        set((s) => {
+          const next = !s.zenMode
+          s.pushToast(next ? 'Galaxy View enabled (Press G or Esc to exit)' : 'Exited Galaxy View', 'info')
+          return { zenMode: next, panel: null }
+        }),
+      setZenMode: (zenMode) => set({ zenMode }),
+
       isFullscreen: false,
       setFullscreen: (isFullscreen) => set({ isFullscreen }),
 
