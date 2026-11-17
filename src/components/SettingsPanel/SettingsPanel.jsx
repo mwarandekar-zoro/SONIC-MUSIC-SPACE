@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { useVisualizerStore } from '../../store/visualizerStore'
 import { SETTING_DEFS, CURSOR_OPTIONS } from '../../constants/settings'
 import useDialogFocus from '../../hooks/useDialogFocus'
+import usePWAInstall from '../../hooks/usePWAInstall'
 import Slider from '../UI/Slider'
 import { CloseIcon } from '../UI/Icons'
 import styles from './SettingsPanel.module.css'
@@ -18,6 +19,7 @@ export default function SettingsPanel() {
   const zenMode = useVisualizerStore((s) => s.zenMode)
   const toggleZenMode = useVisualizerStore((s) => s.toggleZenMode)
   const closePanel = useVisualizerStore((s) => s.closePanel)
+  const { isInstallable, isInstalled, installApp } = usePWAInstall()
   useDialogFocus(ref)
 
   return (
@@ -38,6 +40,21 @@ export default function SettingsPanel() {
       </div>
 
       <div className={styles.list}>
+        {/* PWA Install Button */}
+        {isInstallable && (
+          <div className={styles.installSection}>
+            <button type="button" className={styles.installBtn} onClick={installApp}>
+              📲 Install SONIC//SPACE App
+            </button>
+            <span className={styles.hint}>Install to your home screen for fullscreen audio visualizer experience without browser bars</span>
+          </div>
+        )}
+        {isInstalled && (
+          <div className={styles.installSection}>
+            <span className={styles.installedBadge}>✓ App Installed (Standalone Mode)</span>
+          </div>
+        )}
+
         {/* Interactive Cursor Selection */}
         <div className={styles.cursorSection}>
           <div className={styles.labels}>

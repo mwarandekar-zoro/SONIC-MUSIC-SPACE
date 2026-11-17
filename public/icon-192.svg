@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 192 192">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1a1535"/>
+      <stop offset="100%" stop-color="#06050b"/>
+    </radialGradient>
+    <radialGradient id="orb" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#05d5ff" stop-opacity="0.9"/>
+      <stop offset="60%" stop-color="#9a86ff" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#06050b" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <!-- Background -->
+  <rect width="192" height="192" rx="40" fill="url(#bg)"/>
+  <!-- Orb glow -->
+  <circle cx="96" cy="90" r="52" fill="url(#orb)"/>
+  <!-- Wireframe sphere lines -->
+  <g stroke="#05d5ff" stroke-width="1.2" fill="none" opacity="0.7" filter="url(#glow)">
+    <circle cx="96" cy="90" r="46"/>
+    <ellipse cx="96" cy="90" rx="46" ry="18"/>
+    <ellipse cx="96" cy="90" rx="46" ry="32"/>
+    <line x1="96" y1="44" x2="96" y2="136"/>
+    <line x1="50" y1="90" x2="142" y2="90"/>
+  </g>
+  <!-- S// text -->
+  <text x="96" y="162" font-family="Arial Black, sans-serif" font-weight="900" font-size="22" fill="#ffffff" text-anchor="middle" letter-spacing="1">S//</text>
+</svg>
+

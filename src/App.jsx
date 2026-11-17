@@ -8,8 +8,10 @@ import ToastHost from './components/UI/Toast'
 import CustomCursor from './components/UI/CustomCursor'
 import { useVisualizerStore } from './store/visualizerStore'
 import useBoot from './hooks/useBoot'
+import useMediaSession from './hooks/useMediaSession'
 
 export default function App() {
+  useMediaSession()
   const stage = useVisualizerStore((s) => s.stage)
   const { booted, onSceneReady } = useBoot()
 

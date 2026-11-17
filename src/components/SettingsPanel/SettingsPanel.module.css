@@ -67,6 +67,49 @@
   text-overflow: ellipsis;
 }
 
+/* PWA Install */
+.installSection {
+  display: grid;
+  gap: 8px;
+  padding: 12px;
+  background: rgba(5, 213, 255, 0.05);
+  border: 1px solid rgba(5, 213, 255, 0.2);
+  border-radius: var(--radius-m);
+}
+
+.installBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px 14px;
+  background: linear-gradient(135deg, rgba(5, 213, 255, 0.25), rgba(154, 134, 255, 0.3));
+  border: 1px solid var(--cyan);
+  border-radius: var(--radius-s);
+  color: #fff;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: all 0.25s var(--ease);
+}
+
+.installBtn:hover {
+  background: linear-gradient(135deg, rgba(5, 213, 255, 0.4), rgba(154, 134, 255, 0.45));
+  box-shadow: 0 0 16px rgba(5, 213, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+.installedBadge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #00ffcc;
+}
+
 @media (max-width: 760px) {
   .drawer {
     top: auto;
