@@ -13,6 +13,9 @@ export const CURSOR_OPTIONS = [
   { id: 'crosshair', label: 'HUD Reticle', icon: '✛', hint: 'Futuristic targeting crosshair' },
   { id: 'orb', label: 'Pulse Orb', icon: '●', hint: 'Luminous energy sphere' },
   { id: 'arrow', label: 'Cyber Arrow', icon: '▲', hint: 'Sleek angular sci-fi pointer' },
+  { id: 'guitar', label: 'Guitar', icon: '🎸', hint: 'Electric guitar that glows with bass' },
+  { id: 'note', label: 'Music Note', icon: '♪', hint: 'Music note that pulses with the beat' },
+  { id: 'sax', label: 'Saxophone', icon: '🎷', hint: 'Neon saxophone with treble shimmer' },
   { id: 'default', label: 'Default OS', icon: '↖', hint: 'Standard system cursor' },
 ]
 

@@ -198,6 +198,94 @@
   opacity: 0 !important;
 }
 
+/* =========================================
+   STYLE 5: GUITAR CURSOR (bass reactive)
+   ========================================= */
+.guitarCursor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  will-change: transform, filter;
+  transform: translate(0, 0);
+  filter: drop-shadow(0 0 8px #ff4fa3) drop-shadow(0 0 16px #9a86ff);
+  transition: filter 0.1s ease, transform 0.1s ease;
+  transform-origin: 3px 3px;
+}
+
+.hovering .guitarCursor {
+  filter: drop-shadow(0 0 16px #ff4fa3) drop-shadow(0 0 28px #05d5ff);
+  transform: scale(1.15);
+}
+
+.clicking .guitarCursor {
+  filter: drop-shadow(0 0 24px #ff4fa3) drop-shadow(0 0 40px #ff4fa3);
+  transform: scale(0.9) rotate(-15deg);
+}
+
+/* =========================================
+   STYLE 6: MUSIC NOTE CURSOR (beat reactive)
+   ========================================= */
+.noteCursor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  will-change: transform, filter;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(0 0 8px #05d5ff) drop-shadow(0 0 14px #9a86ff);
+  transition: filter 0.08s ease, transform 0.08s ease;
+}
+
+.hovering .noteCursor {
+  filter: drop-shadow(0 0 18px #05d5ff) drop-shadow(0 0 32px #05d5ff);
+  transform: translate(-50%, -50%) scale(1.2) rotate(-8deg);
+}
+
+.clicking .noteCursor {
+  filter: drop-shadow(0 0 28px #ff4fa3) drop-shadow(0 0 48px #ff4fa3);
+  transform: translate(-50%, -50%) scale(1.4) rotate(15deg);
+}
+
+/* =========================================
+   STYLE 7: SAXOPHONE CURSOR (treble reactive)
+   ========================================= */
+.saxCursor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  will-change: transform, filter;
+  transform: translate(0, 0);
+  filter: drop-shadow(0 0 8px #ffd32a) drop-shadow(0 0 16px #ff9f43);
+  transition: filter 0.1s ease, transform 0.1s ease;
+  transform-origin: 10px 2px;
+}
+
+.hovering .saxCursor {
+  filter: drop-shadow(0 0 16px #ffd32a) drop-shadow(0 0 30px #ff9f43);
+  transform: scale(1.15);
+}
+
+.clicking .saxCursor {
+  filter: drop-shadow(0 0 26px #ff9f43) drop-shadow(0 0 44px #ffd32a);
+  transform: scale(0.9) rotate(12deg);
+}
+
+/* =========================================
+   INSTRUMENT CURSOR OUTER WRAPPER (position)
+   ========================================= */
+.instPos {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  /* position set via inline top/left by mousemove */
+}
+
 @media (pointer: coarse), (hover: none) {
   .cursorContainer {
     display: none !important;
