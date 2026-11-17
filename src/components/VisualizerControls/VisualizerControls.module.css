@@ -9,6 +9,11 @@
 .pill { position: absolute; inset: 0; border-radius: 999px; background: var(--text); }
 .label { position: relative; }
 @media (max-width: 760px) {
-  .wrap { top: calc(64px + env(safe-area-inset-top, 0px)); bottom: auto !important; }
-  .btn { padding: 6px 11px; font-size: 12px; }
+  .wrap { top: calc(56px + env(safe-area-inset-top, 0px)); bottom: auto !important; padding: 4px; gap: 2px; }
+  .btn { padding: 5px 10px; font-size: 12px; }
+}
+
+@media (max-height: 520px) {
+  .wrap { top: calc(40px + env(safe-area-inset-top, 0px)); bottom: auto !important; padding: 3px; gap: 2px; }
+  .btn { padding: 4px 8px; font-size: 11px; }
 }

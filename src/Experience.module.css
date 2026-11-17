@@ -43,3 +43,12 @@
   pointer-events: none;
 }
 
+@media (max-width: 480px), (max-height: 520px) {
+  .zenExitBtn {
+    top: 10px;
+    padding: 6px 14px;
+    font-size: 11px;
+    gap: 6px;
+  }
+}
+

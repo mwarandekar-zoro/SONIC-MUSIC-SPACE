@@ -44,3 +44,33 @@
     font-size: 11px;
   }
 }
+
+@media (max-height: 520px) {
+  .panel {
+    width: min(92vw, 560px);
+    top: 58%;
+    padding: 12px 18px;
+    border-radius: var(--radius-m);
+  }
+  .title {
+    font-size: 18px;
+    margin-bottom: 4px;
+  }
+  .hint {
+    display: none;
+  }
+  .btnGroup {
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 6px;
+  }
+  .pick, .libraryBtn {
+    padding: 8px 16px;
+    font-size: 13px;
+    width: auto;
+  }
+  .formats {
+    display: none;
+  }
+}

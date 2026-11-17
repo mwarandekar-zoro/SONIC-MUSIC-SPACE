@@ -75,3 +75,40 @@
     display: none;
   }
 }
+
+@media (max-height: 520px) {
+  .rail {
+    top: auto;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: max-content;
+    max-width: calc(100vw - 20px);
+    transform: none;
+    z-index: 20;
+  }
+  .noTrack {
+    bottom: calc(8px + var(--safe-bottom));
+  }
+  .withTrack {
+    bottom: calc(52px + var(--safe-bottom));
+  }
+  .head {
+    display: none;
+  }
+  .listWrap, .collapsed {
+    grid-template-rows: 1fr;
+    opacity: 1;
+  }
+  .list {
+    padding: 3px 6px;
+    gap: 2px;
+  }
+  .item {
+    padding: 3px 8px;
+    font-size: 11px;
+  }
+  .tag {
+    display: none;
+  }
+}

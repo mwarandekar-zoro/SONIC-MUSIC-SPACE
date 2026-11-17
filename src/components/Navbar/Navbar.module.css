@@ -7,11 +7,28 @@
 .iconBtn { display: grid; place-items: center; width: 40px; height: 40px; background: var(--glass); border: 1px solid var(--line); border-radius: 50%; backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); cursor: pointer; transition: border-color 0.3s var(--ease), transform 0.3s var(--ease); }
 .iconBtn:hover { border-color: var(--line-strong); transform: scale(1.06); }
 .active { border-color: var(--pulse); color: var(--pulse); box-shadow: 0 0 16px rgba(5, 213, 255, 0.25); }
-@media (max-width: 640px) { .current { display: none; } .keys { display: none; } }
+@media (pointer: coarse) {
+  .keys { display: none !important; }
+}
+
+@media (max-width: 768px) {
+  .current { display: none !important; }
+  .keys { display: none !important; }
+}
+
 @media (max-width: 480px) {
-  .nav { padding: 12px 14px; }
+  .nav { padding: 10px 12px; }
   .brand { font-size: 15px; }
-  .actions { gap: 6px; }
-  .iconBtn { width: 36px; height: 36px; }
+  .actions { gap: 5px; }
+  .iconBtn { width: 34px; height: 34px; }
+}
+
+@media (max-height: 520px) {
+  .nav { padding: 6px 14px; }
+  .brand { font-size: 14px; }
+  .current { display: none !important; }
+  .keys { display: none !important; }
+  .actions { gap: 5px; }
+  .iconBtn { width: 30px; height: 30px; }
 }
 
